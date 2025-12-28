@@ -7,16 +7,29 @@
 // To convert Celsius to Fahrenheit, multiply the Celsius temperature by 1.8 and add 32 to the result (F = (C * 1.8) + 32).
 
 function adjustThermostat(currentF, targetC) {
-  console.log(currentF, targetC);
-  const targetF = targetC * 1.8 + 32;
-  console.log(targetF);
+  //    console.log(currentF, targetC)
+  //    const targetF = (targetC * 1.8) + 32
+  //    console.log(targetF)
 
-  if (currentF < targetF) {
-    return `Heat: ${(targetF - currentF).toFixed(1)} degrees Fahrenheit`;
-  } else if (currentF > targetF) {
-    return `Cool: ${(currentF - targetF).toFixed(1)} degrees Fahrenheit`;
-  } else {
-    return 'Hold';
-  }
+  //    if (currentF < targetF) {
+  //      return `Heat: ${(targetF - currentF).toFixed(1)} degrees Fahrenheit`
+  //   } else if (currentF > targetF) {
+  //     return `Cool: ${(currentF - targetF).toFixed(1) } degrees Fahrenheit`
+  //   } else {
+  //     return "Hold"
+  //   }
   // return currentF;
+
+  // try a dry version
+  const targetF = targetC * 1.8 + 32;
+  // get diff
+  const diff = targetF - currentF;
+  // use Math.abs to Calculate the difference first and check if it is essentially zero after rounding.
+  const absDiff = Math.abs(diff).toFixed(1);
+
+  if (parseFloat(absDiff) === 0) return 'Hold';
+
+  return diff > 0
+    ? `Heat: ${absDiff} degrees Fahrenheit`
+    : `Cool: ${absDiff} degrees Fahrenheit`;
 }
