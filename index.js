@@ -5,3 +5,18 @@
 // Return "Cool: X degrees Fahrenheit" if the current temperature is above the target. With X being the number of degrees in Fahrenheit to cool the room to reach the target, rounded to 1 decimal place.
 // Return "Hold" if the current temperature is equal to the target.
 // To convert Celsius to Fahrenheit, multiply the Celsius temperature by 1.8 and add 32 to the result (F = (C * 1.8) + 32).
+
+function adjustThermostat(currentF, targetC) {
+  console.log(currentF, targetC);
+  const targetF = targetC * 1.8 + 32;
+  console.log(targetF);
+
+  if (currentF < targetF) {
+    return `Heat: ${targetF - currentF} degrees Fahrenheit`;
+  } else if (currentF > targetF) {
+    return `Cool: ${currentF - targetF} degrees Fahrenheit`;
+  } else {
+    return 'Hold';
+  }
+  // return currentF;
+}
