@@ -12,9 +12,9 @@ function adjustThermostat(currentF, targetC) {
   console.log(targetF);
 
   if (currentF < targetF) {
-    return `Heat: ${targetF - currentF} degrees Fahrenheit`;
+    return `Heat: ${(targetF - currentF).toFixed(1)} degrees Fahrenheit`;
   } else if (currentF > targetF) {
-    return `Cool: ${currentF - targetF} degrees Fahrenheit`;
+    return `Cool: ${(currentF - targetF).toFixed(1)} degrees Fahrenheit`;
   } else {
     return 'Hold';
   }
